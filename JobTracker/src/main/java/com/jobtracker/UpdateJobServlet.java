@@ -10,9 +10,17 @@ import javax.servlet.http.*;
 
 @WebServlet("/UpdateJobServlet")
 public class UpdateJobServlet extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	        throws ServletException, IOException {
+
+	    response.sendRedirect("dashboard.jsp");
+	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	
     	HttpSession session = request.getSession(false);
 
     	if (session == null || session.getAttribute("userId") == null) {

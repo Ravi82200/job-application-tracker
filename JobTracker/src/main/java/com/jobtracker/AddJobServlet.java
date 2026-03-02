@@ -15,6 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/AddJobServlet")
 public class AddJobServlet extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	        throws ServletException, IOException {
+
+	    response.sendRedirect("addjob.jsp");
+	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

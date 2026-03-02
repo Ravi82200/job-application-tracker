@@ -10,6 +10,13 @@ import javax.servlet.http.*;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	        throws ServletException, IOException {
+
+	    response.sendRedirect("register.jsp");
+	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
