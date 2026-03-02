@@ -137,7 +137,7 @@ public class ViewJobsServlet extends HttpServlet {
                 out.println("<td>" + rs.getString("job_title") + "</td>");
                 out.println("<td>" + rs.getString("company") + "</td>");
                 out.println("<td>" + rs.getDate("applied_date") + "</td>");
-                out.println("<td>" + rs.getDate("deadline") + "</td>");
+                out.println("<td>" + rs.getDate("deadline_date") + "</td>");
                 out.println("<td>" + rs.getString("status") + "</td>");
                 out.println("<td>"
                         + "<a href='EditJobServlet?id=" + rs.getInt("id") + "'>Edit</a> | "
