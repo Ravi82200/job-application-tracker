@@ -48,8 +48,11 @@ public class AddJobServlet extends HttpServlet {
 
         try {
             Connection conn = DBConnection.getConnection();
+            
+            HttpSession session = request.getSession(false);
+            int userId = (int) session.getAttribute("userId");
 
-            String sql = "INSERT INTO jobs (job_title, company, status, applied_date, deadline, reminder_date) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO jobs (job_title, company, status, applied_date, deadline_date, reminder_date, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, jobTitle);
@@ -58,6 +61,8 @@ public class AddJobServlet extends HttpServlet {
             ps.setDate(4, java.sql.Date.valueOf(appliedDate));
             ps.setDate(5, deadline);
             ps.setDate(6, reminder);
+            ps.setInt(7, userId);
+            
             ps.executeUpdate();
 
             response.getWriter().println("Job Added Successfully!");
