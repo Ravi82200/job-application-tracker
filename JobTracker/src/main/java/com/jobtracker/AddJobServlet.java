@@ -49,7 +49,6 @@ public class AddJobServlet extends HttpServlet {
         try {
             Connection conn = DBConnection.getConnection();
             
-            HttpSession session = request.getSession(false);
             int userId = (int) session.getAttribute("userId");
 
             String sql = "INSERT INTO jobs (job_title, company, status, applied_date, deadline_date, reminder_date, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
